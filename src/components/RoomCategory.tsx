@@ -8,7 +8,6 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Button,
   Typography,
 } from "@mui/material";
 
@@ -29,9 +28,17 @@ const RoomCategory: React.FC<RoomCategoryProps> = ({ category }) => {
         <TableHead sx={{ width: "100vw" }}>
           <TableRow>
             <TableCell
-              sx={{ border: "1px solid", p: 2, textAlign: "center" }}
+              sx={{
+                border: "1px solid",
+                p: 2,
+                textAlign: "center",
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
+              }}
             ></TableCell>
-            {inventoryCalendar.map((item, index) => (
+            {inventoryCalendar.map((item) => (
               <TableCell
                 key={item.date}
                 align="right"
@@ -60,12 +67,15 @@ const RoomCategory: React.FC<RoomCategoryProps> = ({ category }) => {
         <TableBody>
           <TableRow>
             <TableCell
-              colSpan={17}
               sx={{
                 border: "1px solid",
                 p: 2,
                 textAlign: "left",
                 fontWeight: 800,
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
               }}
             >
               {category.name}
@@ -78,11 +88,15 @@ const RoomCategory: React.FC<RoomCategoryProps> = ({ category }) => {
                 p: 2,
                 textAlign: "left",
                 width: "max-content",
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
               }}
             >
               Room status
             </TableCell>
-            {inventoryCalendar.map((item, index) => (
+            {inventoryCalendar.map((item) => (
               <TableCell
                 key={item.id}
                 align="center"
@@ -92,6 +106,7 @@ const RoomCategory: React.FC<RoomCategoryProps> = ({ category }) => {
                   textAlign: "center",
                   bgcolor: item.status ? "#4CAF50" : "#F44336",
                   color: "white",
+                  borderColor: "black",
                 }}
               >
                 {item.status ? "Open" : "Closed"}
@@ -99,70 +114,151 @@ const RoomCategory: React.FC<RoomCategoryProps> = ({ category }) => {
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ border: "1px solid", p: 2, textAlign: "left" }}>
+            <TableCell
+              sx={{
+                border: "1px solid",
+                p: 2,
+                textAlign: "left",
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
+              }}
+            >
               Rooms to sell
             </TableCell>
-            {inventoryCalendar.map((item, index) => (
+            {inventoryCalendar.map((item) => (
               <TableCell
                 key={item.id}
                 align="center"
-                sx={{ border: "1px solid", p: 2, textAlign: "center" }}
+                sx={{
+                  border: "1px solid",
+                  p: 2,
+                  textAlign: "center",
+                  bgcolor: item.status ? "inherit" : "#F44336",
+                }}
               >
                 {item.available}
               </TableCell>
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ border: "1px solid", p: 2, textAlign: "left" }}>
+            <TableCell
+              sx={{
+                border: "1px solid",
+                p: 2,
+                textAlign: "left",
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
+              }}
+            >
               Net booked
             </TableCell>
-            {inventoryCalendar.map((item, index) => (
+            {inventoryCalendar.map((item) => (
               <TableCell
                 key={item.id}
                 align="center"
-                sx={{ border: "1px solid", p: 2, textAlign: "center" }}
+                sx={{
+                  border: "1px solid",
+                  p: 2,
+                  textAlign: "center",
+                  bgcolor: item.status ? "inherit" : "#F44336",
+                }}
               >
                 {item.booked}
               </TableCell>
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ border: "1px solid", p: 2, textAlign: "left" }}>
+            <TableCell
+              sx={{
+                border: "1px solid",
+                p: 2,
+                textAlign: "left",
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
+              }}
+            >
               Standard Rate
             </TableCell>
             {rateCalendar.map((item, index) => (
               <TableCell
                 key={item.id}
                 align="center"
-                sx={{ border: "1px solid", p: 2, textAlign: "center" }}
+                sx={{
+                  border: "1px solid",
+                  p: 2,
+                  textAlign: "center",
+                  bgcolor: inventoryCalendar[index].status
+                    ? "inherit"
+                    : "#F44336",
+                }}
               >
                 {item.rate}
               </TableCell>
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ border: "1px solid", p: 2, textAlign: "left" }}>
+            <TableCell
+              sx={{
+                border: "1px solid",
+                p: 2,
+                textAlign: "left",
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
+              }}
+            >
               Min. length of stay
             </TableCell>
             {rateCalendar.map((item, index) => (
               <TableCell
                 key={item.id}
                 align="center"
-                sx={{ border: "1px solid", p: 2, textAlign: "center" }}
+                sx={{
+                  border: "1px solid",
+                  p: 2,
+                  textAlign: "center",
+                  bgcolor: inventoryCalendar[index].status
+                    ? "inherit"
+                    : "#F44336",
+                }}
               >
                 {item.min_length_of_stay}
               </TableCell>
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ border: "1px solid", p: 2, textAlign: "left" }}>
+            <TableCell
+              sx={{
+                border: "1px solid",
+                p: 2,
+                textAlign: "left",
+                position: "sticky",
+                left: 0,
+                zIndex: 1,
+                bgcolor: "white",
+              }}
+            >
               Min. advance reservation
             </TableCell>
             {rateCalendar.map((item, index) => (
               <TableCell
                 key={item.id}
                 align="center"
-                sx={{ border: "1px solid", p: 2, textAlign: "center" }}
+                sx={{
+                  border: "1px solid",
+                  p: 2,
+                  textAlign: "center",
+                  bgcolor: inventoryCalendar[index].status
+                    ? "inherit"
+                    : "#F44336",
+                }}
               >
                 {item.reservation_deadline}
               </TableCell>
